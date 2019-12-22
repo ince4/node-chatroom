@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>index</title>
+<link rel="icon" type="image/x-icon" href="img/ico.ico">
+<link rel="stylesheet" href="/css/sstyle.css">
+<link rel="stylesheet" href="/css/sign.css">
+</head>
+<body>
+<audio id="acro" loop preload="auto" hidden="hidden">
+  <source src="/sound/wildworld.ogg" type="audio/ogg">
+  <source src="/sound/wildworld.mp3" type="audio/mpeg">
+</audio>
+	<button id="player" ></button>
+	<a href="#"><div id="ttop"></div></a>
+<!--banner -->
+<div class="header">
+	<div class="nav">
+		<p><a href="" id="Y">Y.</a></p>
+		<ul class="nav_right fr">
+			<li>关于<li>
+			<li>在线名单</li>
+			<li class = "sign-show">登陆</li>
+		</ul>
+	</div>
+	<div class="backg">
+		<div class="out"> 
+			<div class="square sign-show">
+				<p id="hello">Hello</p>
+				<p id="name">Welcome to this chatroom</p>
+			</div>
+		</div>
+		<div class="button_r"></div>
+		<div class="button_l"></div>
+		<div id="swiper">
+			<div class="bk"></div>
+			<div class="bk"></div>
+			<div class="bk"></div>
+		</div>
+	</div>
+</div>
+
+<div class="sign">
+	<div id = "switch">
+		<span id = "left_button" class = "user_radio" name = "switchButton" value="login" data-checked="checked">登陆</span>
+		<span id = "right_button" class = "user_radio" name = "switchButton" value="register" data-checked="none">注册</span>
+	</div>	
+
+	<div id = "x">×</div>	
+	<form class="signin">
+
+		<div id="username_box" data-content="">
+			<input type="text" id="user" autocomplete="off" placeholder="请输入用户名">
+		</div>
+
+		<div id="password_box" data-content="">
+			<input type="password" id="pass" autocomplete="off" placeholder="请输入密码">
+		</div>
+
+		<div id="confirm_box" data-content="">
+			<input type="password" id="pass-confirm" autocomplete="off" placeholder="请再次输入注册密码">
+		</div>
+
+		<input type="button" value="登陆" id="login_btn">
+		<input type="button" value="注册" id="reg_btn">
+		
+	</form>
+</div>
+
+<div id = cover></div>
+
+<!-- 个人信息
+
+ <div class="cv_" id="cv">
+    <div class="cv_left fl"></div>
+	<div class="cv_right fl">
+		<ul>
+			<li><p>Name</p><p>：</p><p>Mao Ye</p></li>
+			<li><p>Phone</p><p>：</p><p>+86 86599437</p></li>
+			<li><p>Emal</p><p>：</p><p>421603832@qq.com</p></li>
+			<li><p>Apress</p><p>：</p><p>Shizue street 102, Ninten Mura, Hailar</p></li>
+			<li><p>QQ</p><p>：</p><p>421603832</p></li>
+			<li><p>Friend Code</p><p>：</p><p>SW-3692-2632-6514</p></li>
+		</ul>
+	</div>
+</div> -->
+
+ <!-- 我的家乡  -->
+<!-- <div class="hometown" id="ht">
+	<div class="home_left fl">
+	<div class="ht_left">
+		<h1>我的家乡</h1>
+        <div class="line"></div>
+		<p>温州是国家历史文化名城，素有“东南山水甲天下”之美誉。温州古为瓯地，也称东瓯，公元323年建郡，为永嘉郡,传说建郡城时有白鹿衔花绕城一周,故名鹿城。 唐朝时（公元675年）始称温州 ，至今已有2000余年的建城历史。<br><br>温州是中国民营经济发展的先发地区与改革开放的前沿阵地，在改革开放初期，以“南有吴川，北有温州”享誉全国。温州文化属瓯越文化，温州人属江浙民系使用吴语，温州话被评为中国最难懂方言之一。温州是中国数学家的摇篮、中国南戏的故乡、中国海鲜鸡蛋之乡，温州人被国人称之为东方犹太人。</p>
+		<div class="more"><a href="/hx.html" target="_self">详细内容</a></div>
+	</div>
+	</div>
+	<div class="home_right fl">
+		<ul class="ht_right">
+			<li class="il fl">
+				<div class="i1" id="i1"><div class="tr1"><div class="intr">Glutinous Rice</div></div></div>
+                <div class="i2"><div class="tr2"><div class="intr">Leather Shoes</div></div></div>
+                <div class="i3"><div class="tr3"><div class="intr">Jiangxin Lslet</div></div></div>
+			</li>
+			<li class="ir fl">
+				<div class="i4"><div class="tr4"><div class="intr">Eats opportunely</div></div></div>
+                <div class="i5"><div class="tr5"><div class="intr">Su Buqing</div></div></div>
+                <div class="i6"><div class="tr6"><div class="intr">Citrus reticulata cv.Suavissima</div></div></div>
+			</li>
+		</ul>
+	</div>
+</div> -->
+
+ <!-- 个人兴趣  -->
+<!-- <div class="hb" id="hb">
+	<div class="hb_left fl">
+	<div class="brief">
+		<h1>个人兴趣</h1>
+    <div class="line2"></div>
+		<p>个人兴趣是指“个人”对特定的“事物”、“活动”以及“人为对象”所产生的带有倾向性、选择性的态度、情绪、喜欢的想法和“个人爱好”意思相近，但含义不同。根据兴趣产生的方式，可以将兴趣分为直接兴趣和间接兴趣。直接兴趣是人对事物本身或活动过程本身感兴趣。间接兴趣是人对活动的结果感兴趣。</p>
+	</div>
+	</div>	
+	
+	<div class="hb_right fl">
+	<div class="list">
+		<div class="row">
+			<div class="col1 fl"><h2>乒乓球</h2><p>乒乓球起源于英国，"乒乓球"一名起源自1900年，因其打击时发出“Ping Pong”的声音而得名，在中国大陆以“乒乓球”作为它的官方名称，香港及澳门等地区亦同。</p></div>
+			<div class="col2 fl"><h2>电子游戏</h2><p>指依托于电子设备平台而运行的交互游戏。根据媒介的不同多分为主机游戏、掌机游戏、电脑游戏、街机游戏和移动游戏。完善的电子游戏在20世纪末出现，改变了人类进行游戏的行为方式和对游戏一词的定义，属于随科技发展而诞生的文化活动。电子游戏也可代指“电子游戏软件”。</p></div>
+			<div class="col3 fl"><h2>阅读</h2><p>阅读是运用语言文字来获取信息，认识世界，发展思维，并获得审美体验的活动。它是从视觉材料中获取信息的过程。视觉材料主要是文字和图片，也包括符号、公式、图表等。</p></div>
+		</div>
+		<div class="row">
+			<div class="col1 fl"><h2>麻将</h2><p>麻将，起源于中国，粤港澳及闽南地区俗称麻雀，由中国古人发明的博弈游戏，娱乐用具，一般用竹子、骨头或塑料制成的小长方块，上面刻有花纹或字样，北方麻将每副136张，南方麻将多八个花牌，分别是春夏秋冬，梅竹兰菊，共计144张。</p></div>
+			<div class="col2 fl"><h2>听音乐</h2><p>音乐是反映人类现实生活情感的一种艺术，音乐让人赏心悦目，并为大家带来听觉的享受。音乐能提高人的审美能力，净化人们的心灵，树立崇高的理想。我们通过音乐来抒发我们的情感，使我们的很多情绪得到释放。</p></div>
+			<div class="col3 fl"><h2>喝冷饮</h2><p>冷饮大约起源于3000年前的商代，当时的富贵人家已知冬日凿冰贮藏于窖，以备来年盛夏消暑之需。周朝更设有专掌“冰权”的“凌人”。到了春秋末期，冰的用途就更广泛。诸侯喜爱在宴席上饮冰镇米酒。</p></div>
+		</div>
+	</div>
+	</div> 
+</div> -->
+ <div class="end">
+	<div class="block1 fl"><h2>Ttttt</h2> </div>
+	<div class="block2 fl"><h2>Fffff</h2> </div>
+	<div class="block3 fl"><h2>Ggggg +</h2> </div>
+	<div class="cover fl"><div id="murabito"></div></div>
+</div>
+</body>
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/player.js" type="text/javascript"></script>
+<script src="/js/swiper.js" type="text/javascript"></script>
+<script src="/js/login.js" type="text/javascript"></script>
+</html>
+

@@ -1,0 +1,130 @@
+
+.sign{
+    display: none;
+    background-color:#fff;
+    width: 320px;
+    height: 300px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow:6px 6px 28px 1px rgba(255, 255, 255, 100);
+    border-radius: 12px;
+    z-index: 9;
+}
+
+.sign #switch{
+    margin: 25px 0 40px 30px;
+    /* padding-top: 10px; */
+    width: 100px;
+    background-color: transparent;
+    border: 0px;
+    outline: none;
+    cursor: pointer;  
+    font-size: 16px;
+    color: #787d82;
+    font-weight: bold;
+    user-select: none;
+}
+
+.sign label{
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.sign #x{
+    position:absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 32px;
+    user-select: none;
+    transition: all 0.3 ease;
+}
+.sign #x:hover{
+    color: brown;
+    cursor: pointer;
+}
+
+.sign .signin{
+    width: 250px;
+    margin: 0 auto;
+}
+.sign .signin div{
+    position: relative;
+}
+.sign .signin div::after{
+    position: absolute;
+    content: attr(data-content);
+    color: #f20d0d;
+    left: 10px;
+    top: 45px;
+}
+
+
+input[type=text],input[type=password] {
+    outline-style: none ;
+    box-sizing: border-box;
+    border: 1px solid #ccc; 
+    border-radius: 6px;
+    padding: 10px 10px;
+    width: 250px;
+    font-size: 14px;
+    font-family: "Microsoft soft";
+    line-height: 20px;
+    margin-bottom: 25px;
+}
+
+.sign #switch span{
+    margin-right: 15px;
+    position: relative;
+}
+.sign #switch span[data-checked=checked]{
+    color: #f20d0d;
+
+}
+.sign #switch span[data-checked=checked]::after{
+    content: "";
+    position: absolute;
+    width: 20px;height: 4px;
+    background-color: #f20d0d;
+    top: 30px;
+    left:5px ;
+    border-radius: 6px;
+}
+
+.sign input[type=button]{
+    position: absolute;
+    width: 250px;
+    height: 40px;
+    top: 225px;
+    font-size: 16px;
+    color:white;
+    left: 35px;
+    background-color:#f20d0d;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+.sign input[type=button]:hover{
+    background-color: brown;
+}
+.sign #reg_btn{
+    display: none;
+}
+
+.sign #pass-confirm{
+    display: none;
+}
+
+#cover {
+    width: 100%;height: 100%;
+    position: fixed;
+    background-color: black;
+    opacity: 0.7;
+    z-index: 8;
+    top: 0;left: 0;
+    display: none;
+}
+

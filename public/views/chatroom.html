@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <title>chatroom</title>
+    <link rel="stylesheet" href="/css/chatroom.css">
+  </head>
+  <body>
+    
+    <div id="cover">
+      <div id="setting">
+        <h2>请输入昵称</h2>
+        <div id = "illustrate"></div>
+        <input type="text" id="type-nickname" maxlength="9" placeholder="昵称最大长度不超过9">
+        <div id = "choices">
+          <input id="maleIcon"type="radio" name="icon-choose" value = "male">
+          <label class="default" for="maleIcon"></label>
+          <input id="femaleIcon" type="radio" name="icon-choose" value = "female">
+          <label class="default" for="femaleIcon"></label>
+          <label id = "uploadLabel"><input type="file"></label>
+        </div>
+        <button id = "toNext">下一步＞</button>
+        <button id = "done">完成!</button>
+      </div>
+
+    </div>
+
+    <ul id="messages">
+    </ul>
+  <div id ="fix-wrap">
+    <form action="">
+      <input id="m" autocomplete="off" /><button>发送</button>
+    </form>
+  </div>
+  </body>
+
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/setting.js"></script>
+<script src="/js/chat.js"></script>
+</html>
