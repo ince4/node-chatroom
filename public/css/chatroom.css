@@ -191,7 +191,7 @@
             color: #4b4b4b;
       }
 
-      #cover #setting #done{
+      #cover #setting #done, #crop-finish{
             font-size: 38px;
             color: #4e8fc5;
             font-weight: bold;
@@ -212,7 +212,7 @@
       #cover #setting #toNext:hover{
             color: #4e8fc5;
       }
-      #cover #setting #done:hover{
+      #cover #setting #done:hover, #crop-finish:hover{
             transform: scale(1.3);
       }
 

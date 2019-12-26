@@ -3,6 +3,7 @@
   <head>
     <title>chatroom</title>
     <link rel="stylesheet" href="/css/chatroom.css">
+    <link rel="stylesheet" href="/cropper/dist/cropper.min.css">
   </head>
   <body>
     
@@ -19,6 +20,7 @@
           <label id = "uploadLabel"><input type="file"></label>
         </div>
         <button id = "toNext">下一步＞</button>
+        <button id = "crop-finish">确认</button>
         <button id = "done">完成!</button>
       </div>
 
@@ -34,6 +36,7 @@
   </body>
 
 <script src="/jquery/dist/jquery.min.js"></script>
+<script src="/cropper/dist/cropper.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/setting.js"></script>
 <script src="/js/chat.js"></script>

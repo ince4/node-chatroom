@@ -16,8 +16,8 @@ server.use(express.static('node_modules'));
 server.use(express.static('public'));//静态资源文件目录
 
 server.get('/',function(req,res){
-    res.sendFile(__dirname+'/public/views/index.html');
-    // res.sendFile(__dirname+'/public/views/chatroom.html');
+    // res.sendFile(__dirname+'/public/views/index.html');
+    res.sendFile(__dirname+'/public/views/chatroom.html');
 })
 
 //登陆部分
@@ -28,19 +28,6 @@ server.get('/',function(req,res){
   };
 
   var onlineUsers = [];
-
-  onlineUsers.elem = function(socketId,targetKey,newValue){
-    let targetItem = this.find(x => x.id === socketId);
-    if (arguments.length === 1){
-      return targetItem;
-    }
-    else if (arguments.length === 2){
-      return targetItem[targetKey];
-    }  
-    else if (arguments.length === 3){
-      targetItem[targetKey] = newValue;
-    }
-  }
 
   var reqUserName;
   server.post('/reg',function(req,res){
@@ -115,44 +102,51 @@ server.get('/',function(req,res){
     }
   });*/
 
+    // onlineUsers.elem = function(socketID,key,newValue){
+    //   let target = this.find(x => x.id === socketID); 
+    //   if (arguments.length === 1){
+    //     return target; 
+    //   }
+    //   else if (arguments.length === 2){
+    //     return target[key];
+    //   }
+    //   else if (arguments.length === 3){
+    //     target[key] = newValue;
+    //     return target[key];
+    //   }
+    // }
+
 //聊天室部分
 
-
-
   io.on('connection', function(socket){
-
     onlineUsers.push({username:reqUserName,id:socket.id,nickname:"",iconSrc:""});
       io.emit("onlineUsers",onlineUsers);
-
-
-    socket.on('enterRoom',function(nickname, icon){
-      
-      onlineUsers.elem(socket.id,"nickname",nickname);
-      onlineUsers.elem(socket.id,"iconSrc",icon);
-      io.emit("prompt", reqUserName,nickname, "加入了群聊"); 
+      console.log(onlineUsers);
     
+    socket.on('enterRoom',function(nickname,icon){
+      
+      onlineUsers.find(x => x.id === socket.id).nickname=nickname;
+      onlineUsers.find(x => x.id === socket.id).iconSrc=icon;
+      io.emit("prompt", reqUserName,nickname, "加入了群聊"); 
+
     socket.on("message", function (msg) {
       msg.id = socket.id;
-      msg.user=onlineUsers.elem(socket.id,'username');
-      msg.nickname=onlineUsers.elem(socket.id,'nickname');
-      msg.iconSrc=onlineUsers.elem(socket.id,'iconSrc');
-      console.log(onlineUsers);
-      io.emit("message", msg);
-
+      msg.user=onlineUsers.find(x => x.id === socket.id).username;
+      msg.nickname=onlineUsers.find(x => x.id === socket.id).nickname;
+      msg.iconSrc=onlineUsers.find(x => x.id === socket.id).iconSrc;
+      io.emit("message", msg); //将新消息广播出去
     })
 })
-    socket.on('disconnect', function(){
-
-      if (onlineUsers.elem(socket.id,"nickname")){
-      io.emit("prompt", onlineUsers.elem(socket.id,"username"), 
-      onlineUsers.elem(socket.id,"nickname"),"退出了群聊"); 
+socket.on('disconnect', function(){
+      if(onlineUsers.find(x => x.id === socket.id).nickname !==""){
+        io.emit("prompt", onlineUsers.find(x => x.id === socket.id).username,
+        onlineUsers.find(x => x.id === socket.id).nickname,"退出了群聊"); 
       }
-     
-      while(onlineUsers.elem(socket.id) instanceof Object){
-      onlineUsers.splice(onlineUsers.elem(socket.id),1);
+      while(onlineUsers.find(x => x.id === socket.id) instanceof Object){
+      onlineUsers.splice(onlineUsers.indexOf(onlineUsers.find(x => x.id === socket.id)),1);
       }
-    
-
       io.emit("onlineUsers",onlineUsers);
-      })
+      console.log("退出了群聊");
+    
+    })
 })

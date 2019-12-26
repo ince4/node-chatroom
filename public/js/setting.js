@@ -48,15 +48,71 @@ function uploadfile2() {
     
     reads.onload = function () {
     $('input[name="icon-choose"]').next().hide();
-    myIconSrc = reads.result;//
-    let $preview = $('<label></label>');
-    $preview.css('background-image','url('+myIconSrc+')');
-    $choices.prepend($preview);
+    myIconSrc = reads.result;
+
+    //未经裁剪的图像
+    var $croppedIcon = $('<label id = "croppedIcon"></label>');
+    $croppedIcon.css('background-image','url('+myIconSrc+')');
+    $choices.prepend($croppedIcon);
+    $setting.animate({width:'800px',height:'500px'},700,cropperInterface())
     };
+
+    
     $doneButton.css('display','block');
     $chosenDefault=$('input[name="icon-choose"]:checked');
     $chosenDefault.prop('checked', '');
 }
+
+    
+    function cropperInterface(){
+        var $cropFinish = $('#crop-finish');
+        $('h2').text('裁剪头像');
+        $choices.fadeOut(200);$doneButton.fadeOut(200);
+
+        //img父元素容器
+        var $editBox = $('<div><img class = "editImage"></img></div>');
+        $editBox.css({ 'height': '400px', 'width': '400px',  'margin': '20px auto auto 30px'});
+        
+        //被裁剪图片
+        $editImage = $editBox.find("img");
+        $editImage.attr('src', myIconSrc);
+        $editImage.css({ 'height': '400px', 'width': '400px', 'object-fit': 'cover'});
+
+        //裁剪预览
+        var $editPreview = $('<label style = "top:-400px; left:550px"></label>');
+        $editPreview.css({ 'overflow': 'hidden'});
+      
+        $setting.append($editBox).append($editPreview);
+        $cropFinish.css({'position': 'relative', 'top': '300px', 'left': '588px'});
+        $cropFinish.show();
+        
+        //引入
+        $editImage.cropper({
+            aspectRatio: 1 / 1,
+            viewMode:1,
+            movable:false,
+            scalable:false,
+            zoomale:false,
+            preview:$editPreview
+        });
+
+        //完成裁剪
+        $cropFinish.on('click',function(){
+            $setting.animate({width:'800px',height:'400px'})
+            $choices.fadeIn(200);$doneButton.fadeIn(200);
+            $editBox.fadeOut(200);
+            $editImage.fadeOut(200);
+            $editPreview.fadeOut(200);
+            $cropFinish.fadeOut(200);
+            
+            var $newImg = $editImage.cropper('getCroppedCanvas');
+            myIconSrc = $newImg.toDataURL('image/jpeg'); 
+            var $croppedIcon = $("#croppedIcon");
+            $croppedIcon.css('background-image','url('+myIconSrc+')');
+        })
+    }
+
+
 
 
 $('.default').on('click',function(){
@@ -65,6 +121,7 @@ $('.default').on('click',function(){
 
 var $chosenDefault;
 $doneButton.on('click',function(){
+    $doneButton.attr("disabled",true);
     $chosenDefault=$('input[name="icon-choose"]:checked');
     //选择默认头像
     if($chosenDefault.val() === 'male'){
