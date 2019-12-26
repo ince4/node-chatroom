@@ -11,6 +11,6 @@ https://www.jianshu.com/p/b608a765519a<br>
 http://cw.hubwiz.com/card/c/544db33888dba01ef09d0682/1/3/3/
 https://blog.csdn.net/qq_36671474/article/details/100545250 //URL.createObjectURL() FileReader.readAsDataURL()
 <br>[new]https://blog.csdn.net/weixin_41196185/article/details/82185342
-cropper
+<br>cropper
 <br>https://blog.csdn.net/weixin_38023551/article/details/78792400
 <br>https://github.com/fengyuanchen/cropper/blob/master/README.md
