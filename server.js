@@ -121,7 +121,6 @@ server.get('/',function(req,res){
   io.on('connection', function(socket){
     onlineUsers.push({username:reqUserName,id:socket.id,nickname:"",iconSrc:""});
       io.emit("onlineUsers",onlineUsers);
-      console.log(onlineUsers);
     
     socket.on('enterRoom',function(nickname,icon){
       
@@ -146,7 +145,6 @@ socket.on('disconnect', function(){
       onlineUsers.splice(onlineUsers.indexOf(onlineUsers.find(x => x.id === socket.id)),1);
       }
       io.emit("onlineUsers",onlineUsers);
-      console.log("退出了群聊");
     
     })
 })
