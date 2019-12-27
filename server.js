@@ -16,8 +16,8 @@ server.use(express.static('node_modules'));
 server.use(express.static('public'));//静态资源文件目录
 
 server.get('/',function(req,res){
-    // res.sendFile(__dirname+'/public/views/index.html');
-    res.sendFile(__dirname+'/public/views/chatroom.html');
+    res.sendFile(__dirname+'/public/views/index.html');
+    // res.sendFile(__dirname+'/public/views/chatroom.html');
 })
 
 //登陆部分
