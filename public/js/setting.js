@@ -50,10 +50,12 @@ function uploadfile2() {
     $('input[name="icon-choose"]').next().hide();
     myIconSrc = reads.result;
 
-    //未经裁剪的图像
     var $croppedIcon = $('<label id = "croppedIcon"></label>');
+    if($choices.find("#croppedIcon")[0] === undefined){
+        $choices.prepend($croppedIcon);
+    }
+
     $croppedIcon.css('background-image','url('+myIconSrc+')');
-    $choices.prepend($croppedIcon);
     $setting.animate({width:'800px',height:'500px'},700,cropperInterface())
     };
 
