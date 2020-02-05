@@ -1,7 +1,7 @@
 # Nodejs-chatroom
 Express + Socket.IO聊天室<br><br>
 <b>进度：</b><br>
-登录注册功能 禁止重复登陆 上下线提示 上传自定义头像头像裁剪(cropper)
+登录注册功能 禁止重复登陆 上下线提示 上传自定义头像头像裁剪(cropper)<br>
 <b>参考文档：</b><br>
 https://www.cnblogs.com/zhou195/p/8708762.html<br>
 https://www.jianshu.com/p/5db4a9a2cb1c<br>
